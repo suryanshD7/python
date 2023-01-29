@@ -2,7 +2,6 @@ print('Welcome to prime number checker! ')
 
 user_input = int(input('Enter the number to check: '))
 
-
 def prime_number_checker(user_input):
 
     flag = True
