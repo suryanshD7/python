@@ -1,0 +1,79 @@
+import random
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
+         'coyote crow deer dog donkey duck eagle ferret fox frog goat '
+         'goose hawk lion lizard llama mole monkey moose mouse mule newt '
+         'otter owl panda parrot pigeon python rabbit ram rat raven '
+         'rhino salmon seal shark sheep skunk sloth snake spider '
+         'stork swan tiger toad trout turkey turtle weasel whale wolf '
+         'wombat zebra ').split()
+chosen_word = random.choice(words)
+print(chosen_word)
+blank_space = []
+lives = 6
+for i in range(0,len(chosen_word)):
+    blank_space += '_'
+end_of_game = False
+while not end_of_game: 
+    guess = input('guess the letter: ')
+    counter = 0
+    for num in range(len(chosen_word)):
+        if guess == chosen_word[num]:
+            blank_space[num] = guess
+            counter = 1
+    if counter == 0:
+        lives -= 1
+    print(blank_space)
+    print(lives)
+    print(HANGMANPICS[-1-lives])
+    if ('_' not in blank_space) or (lives == 0):
+        end_of_game = True
