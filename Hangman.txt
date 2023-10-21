@@ -73,7 +73,6 @@ while not end_of_game:
     if counter == 0:
         lives -= 1
     print(blank_space)
-    print(lives)
     print(HANGMANPICS[-1-lives])
     if ('_' not in blank_space) or (lives == 0):
         end_of_game = True
